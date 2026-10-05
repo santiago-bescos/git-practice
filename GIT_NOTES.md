@@ -399,3 +399,15 @@ This refers to different styles of line endings:
 - `CRLF` = commonly used on Windows
 
 This is normally just a warning and does not mean that the Git command failed.
+
+
+## Useful Commands for terminal 
+
+ls       → list files
+cd       → change directory
+cd ..    → go up one directory
+mkdir    → make directory
+mv       → move/rename
+ren      → rename
+cat      → show file contents
+pwd      → show current location
