@@ -321,6 +321,19 @@ Ignore a file called `.env`.
 
 The `/` after a name indicates a directory.
 
+
+
+To add stuff all at once:
+
+Set-Content → replace contents
+Add-Content → append contents
+
+ex: @(
+    "new line"
+    "another new line"
+) | Add-Content .gitignore
+
+
 ### Important
 
 `.gitignore` does **not** delete files.
@@ -411,3 +424,4 @@ mv       → move/rename
 ren      → rename
 cat      → show file contents
 pwd      → show current location
+ni       → new item (touch in linux)
