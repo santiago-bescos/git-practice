@@ -260,3 +260,142 @@ GitHub
 Git tracks the project locally.
 
 GitHub hosts an online copy of the repository.
+
+---
+
+## `.gitignore`
+
+`.gitignore` is a file that tells Git which files and folders it should **not track**.
+
+This is useful for files that are:
+
+- Automatically generated
+- Temporary
+- Specific to my computer
+- Large/unnecessary
+- Sensitive (e.g. passwords or API keys)
+
+Example Python `.gitignore`:
+
+```gitignore
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environments
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Environment variables / secrets
+.env
+```
+
+### Basic `.gitignore` syntax
+
+```gitignore
+*.pyc
+```
+
+Ignore all files ending in `.pyc`.
+
+```gitignore
+__pycache__/
+```
+
+Ignore the `__pycache__` directory.
+
+```gitignore
+.venv/
+```
+
+Ignore the `.venv` directory.
+
+```gitignore
+.env
+```
+
+Ignore a file called `.env`.
+
+The `/` after a name indicates a directory.
+
+### Important
+
+`.gitignore` does **not** delete files.
+
+It tells Git not to track files matching those patterns.
+
+Also, `.gitignore` itself should normally be committed to the repository so that Git knows what to ignore when the project is used on another computer.
+
+---
+
+## Creating/editing `.gitignore` from PowerShell
+
+Create an empty file:
+
+```powershell
+New-Item .gitignore -ItemType File
+```
+
+Append a line:
+
+```powershell
+"*.pyc" >> .gitignore
+```
+
+`>>` means **append to the file**.
+
+`>` would overwrite the file.
+
+Read the file:
+
+```powershell
+cat .gitignore
+```
+
+For normal projects, editing `.gitignore` directly in VS Code is usually easier.
+
+---
+
+## Testing `.gitignore`
+
+If `.gitignore` contains:
+
+```gitignore
+.venv/
+```
+
+then creating:
+
+```powershell
+mkdir .venv
+```
+
+should result in Git ignoring the folder.
+
+Check with:
+
+```powershell
+git status
+```
+
+The `.venv` directory should not appear as an untracked file.
+
+---
+
+## Line endings
+
+On Windows, Git may show a warning such as:
+
+```text
+LF will be replaced by CRLF
+```
+
+This refers to different styles of line endings:
+
+- `LF` = commonly used on Linux/macOS
+- `CRLF` = commonly used on Windows
+
+This is normally just a warning and does not mean that the Git command failed.
